@@ -32,28 +32,26 @@ const Githubprofile = () => {
         <p>Please Input the login ID to display the details</p>
       ):(
         <div>
-          {(userdata.message=='Not Found')?(
-            <p>No user found</p>
-          ):(
-
+          {(userdata.message!='Not Found')?(
             <div>
-              <img src={userdata.avatar_url} id='useravatar'/>
-              <h1>{userdata.name}</h1>
-              <p>ID Number: <b>{userdata.id}</b></p>
-              {(userdata.email="null")?(
-                <p>Email: <b>Not Available</b></p>
-              ):(
-                <p>Email: <b>{userdata.email}</b></p>
-              )}
+            <img src={userdata.avatar_url} id='useravatar'/>
+            <h1>{userdata.name}</h1>
+            <p>ID Number: <b>{userdata.id}</b></p>
+            {(userdata.email="null")?(
+              <p>Email: <b>Not Available</b></p>
+            ):(
+              <p>Email: <b>{userdata.email}</b></p>
+            )}
 
-              {(userdata.bio="null")?(
-                <p>Bio: <b>Not Available</b></p>
-              ):(
-                <p>Bio: <b>{userdata.bio}</b></p>
-              )}
-              <p>Profile URL: <a href={userdata.html_url}><b>{userdata.html_url}</b></a></p>
-            </div>
-
+            {(userdata.bio="null")?(
+              <p>Bio: <b>Not Available</b></p>
+            ):(
+              <p>Bio: <b>{userdata.bio}</b></p>
+            )}
+            <p>Profile URL: <a href={userdata.html_url}><b>{userdata.html_url}</b></a></p>
+          </div>
+          ):(
+            <p>User data not found/Login Invalid.</p>
           )}
         </div>
       )}
