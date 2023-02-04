@@ -15,14 +15,19 @@ const Githubprofile = () => {
         console.log('Api called and User Data Fetched');
       });
   };
-  const onInput =((e)=>{setLogin(e.target.value);})
+  const onBlurevent =(e)=>{setLogin(e.target.value);}
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") {
+      setLogin(e.target.value)
+    }
+  };
 
   if (userdata == '') {
     return <p>Loading...</p>;
   }
   return (
     <React.Fragment>
-      <input type='text' onBlur={onInput}/>
+      <input type='text' onBlur={onBlurevent} onKeyDown={handleKeyDown}/>
       {(login =='')?(
         <p>Please Input the login ID to display the details</p>
       ):(
